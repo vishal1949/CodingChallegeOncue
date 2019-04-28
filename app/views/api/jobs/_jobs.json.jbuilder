@@ -1,0 +1,1 @@
+Json.set! job, :id, :name, :date, :start, :end 
