@@ -1,10 +1,11 @@
-class JobsController < ApplicationController
+class Api::JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
-    if @job.save
+    if @job.save!
       render :show
     else
       render json: ['Trucks are booked in that time frame! Sorry']
+    end
   end
 
   private

@@ -1,10 +1,11 @@
-class TrucksController < ApplicationController
+class Api::TrucksController < ApplicationController
   def create 
     @truck = Truck.new(truck_params)
-    if @truck.save
-      render :index
+    if @truck.save!
+      render :show
     else
       render json: ['Error! Did not create truck']
+    end
   end
 
   def index
