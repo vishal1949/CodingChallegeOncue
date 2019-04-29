@@ -8,6 +8,15 @@ export const createJob = (job) => {
   )
 }
 
+export const fetchJobs = () => {
+  return(
+    $.ajax({
+      method: 'get',
+      url: `api/jobs`
+    })
+  )
+}
+
 export const fetchJob = (id) => {
   return(
     $.ajax({

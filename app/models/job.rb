@@ -17,10 +17,10 @@ class Job < ApplicationRecord
   validates :name, :date, :start, :end, presence: true  
   # validates :overlap_prevention
 
-  # belongs_to :truck,
-  #   primary_key: :id,
-  #   foreign_key: :truck_id,
-  #   class_name: 'Truck'
+  belongs_to :truck,
+    primary_key: :id,
+    foreign_key: :truck_id,
+    class_name: 'Truck'
 
   # def availability_check
   #   Job.where.not(id: self.id).where(truck_id: self.truck_id)
