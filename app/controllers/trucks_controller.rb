@@ -1,6 +1,6 @@
 class TrucksController < ApplicationController
   def create 
-    @truck = Truck.create(truck_params)
+    @truck = Truck.new(truck_params)
     if @truck.save
       render :index
     else

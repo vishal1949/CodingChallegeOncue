@@ -1,10 +1,10 @@
 class JobsController < ApplicationController
   def create
-    @job = Job.create!(job_params)
-    if @listings.save
+    @job = Job.new(job_params)
+    if @job.save
       render :show
     else
-      render json: ['Error. Did not create job!']
+      render json: ['Trucks are booked in that time frame! Sorry']
   end
 
   private
