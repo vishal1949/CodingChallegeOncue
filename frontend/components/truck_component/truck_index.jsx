@@ -7,21 +7,22 @@ class TruckIndex extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.fetchJobs();
+    this.props.fetchJobs();
     this.props.fetchTrucks();
   }
 
+
   render(){
-    if(!this.props.state.entities.trucks){
+    if(this.props.state.entities.jobs === {}){
       return null;
     }
     let truckArray = Object.values(this.props.state.entities.trucks)
-    debugger
+    let jobsArray = Object.values(this.props.state.entities.jobs)
     return(
       <div>
         <div>Trucks </div>
         {truckArray.map( truck => 
-        <TruckIndexItem truck={truck}/> )}
+          <TruckIndexItem truck={truck} jobs={jobsArray}/> )}
       </div>
     )
   }

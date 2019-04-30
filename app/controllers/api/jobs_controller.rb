@@ -11,10 +11,14 @@ class Api::JobsController < ApplicationController
     end
 
     if @job.save!
-      render :show
+      render :show #show
     else
       render json: ['No Trucks available in that time frame! Sorry!']
     end
+  end
+
+  def index 
+    @jobs = Job.all
   end
 
   private
