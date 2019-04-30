@@ -3,9 +3,16 @@ class Api::JobsController < ApplicationController
     @job = Job.new(job_params)
     @trucks = Truck.all 
     @trucks.each do |truck|
-      if truck.start <= @job.start && truck.end >= @job.end 
+      if (truck.start <= @job.start && truck.end >= @job.end)
         # 24 hour time
-        @job.truck_id = truck.id 
+        debugger
+        if truck.dates.include?(@job.date)
+          #do nothing
+        else
+          @job.truck_id = truck.id 
+          truck.dates << @job.date
+          truck.save!
+        end
         break
       end
     end

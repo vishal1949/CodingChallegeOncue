@@ -1,5 +1,6 @@
 import React from 'react';
 import TruckIndexItem from './truck_index_item'
+const finePrint = {fontSize: '12px', margin: '10px' }
 
 class TruckIndex extends React.Component {
   constructor(props){
@@ -20,9 +21,10 @@ class TruckIndex extends React.Component {
     let jobsArray = Object.values(this.props.state.entities.jobs)
     return(
       <div>
-        <div>Trucks </div>
+        <h2>Trucks </h2>
         {truckArray.map( truck => 
           <TruckIndexItem truck={truck} jobs={jobsArray}/> )}
+        <div style={finePrint}>*Please refresh page to see updated index!</div>
       </div>
     )
   }

@@ -8,6 +8,7 @@
 #  end        :time             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  dates      :string           default([]), is an Array
 #
 
 require 'test_helper'
